@@ -112,3 +112,7 @@ export const Paragraph = styled.p`
   margin-bottom: 30px;
   line-height: 1.4;
 `;
+
+export const ItemContainer = styled.div`
+  opacity: ${props => props.isActive ? 1 : 0};  
+`;
