@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputText from "../components/InputText";
-import { Button, CarreiraContainer, ItemContainer } from "../styles";
+import { Button, CarreiraContainer, ItemContainer, Paragraph } from "../styles";
 
 const Carreira = () => {
   const [form, setForm] = useState({
