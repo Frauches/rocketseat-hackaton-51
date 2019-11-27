@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import InputText from "../components/InputText";
-import { Button, CarreiraContainer } from "../styles";
+import { Button, CarreiraContainer, ItemContainer } from "../styles";
 
 const Carreira = () => {
   const [form, setForm] = useState({
@@ -26,7 +26,7 @@ const Carreira = () => {
   };
 
   const formView = (
-    <div>
+    <ItemContainer isActive={containerActive === 0}>
       {questionItems.map((questionItem, index) => {
         return (
           <InputText
@@ -37,18 +37,21 @@ const Carreira = () => {
           />
         );
       })}
-      <Button
-        disabled={formQuestionNumber + 1 > questionItems.length}
+      {formQuestionNumber + 1 < questionItems.length && <Button
         onClick={() => setFormQuestionNumber(formQuestionNumber + 1)}
       >
-        Próximo
-      </Button>
-    </div>
+        >
+      </Button>}
+      {formQuestionNumber + 1 >= questionItems.length && <Button
+        onClick={() => setContainerActive(containerActive + 1)}>
+        Avançar
+      </Button>}
+    </ItemContainer>
   );
 
   // Início - Questionário - 1
   const formQuestionario1View = (
-    <div>
+    <ItemContainer isActive={containerActive === 1}>
       <div>
         <h1>Questionário 1:</h1>
       </div>
@@ -62,17 +65,15 @@ const Carreira = () => {
       >
         Próximo
       </Button>
-    </div>
+    </ItemContainer>
   );
   // Fim - Questionário - 1
 
   const contentContainers = [formView, formQuestionario1View];
 
   return (
-    <CarreiraContainer>
-      {contentContainers.map(formView => {
-        return formView;
-      })}
+    <CarreiraContainer>      
+      {contentContainers[containerActive]}
     </CarreiraContainer>
   );
 };

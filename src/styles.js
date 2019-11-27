@@ -104,3 +104,7 @@ export const CarreiraContainer = styled.div`
   flex-wrap: nowrap;  
   overflow-x: hidden;
 `;
+
+export const ItemContainer = styled.div`
+  opacity: ${props => props.isActive ? 1 : 0};  
+`;
