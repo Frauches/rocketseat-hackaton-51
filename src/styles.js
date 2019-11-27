@@ -83,6 +83,7 @@ export const Button = styled.button`
   background-color: ${yellowHover};
   border: none;
   outline: none;
+  margin: 15px;
   padding: 20px 35px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
@@ -112,4 +113,14 @@ export const Paragraph = styled.p`
 
 export const ItemContainer = styled.div`
   opacity: ${props => props.isActive ? 1 : 0};  
+`;
+
+export const VideoContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  iframe {
+    margin-right: 20px;
+  }
 `;
