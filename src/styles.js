@@ -4,7 +4,6 @@ const mainBlack = '#141414';
 const white = '#F6F6F6';
 const yellowHover = '#eab302';
 
-
 export const HeaderStyle = styled.header`
   display: flex;
   justify-content: space-between;
@@ -40,14 +39,12 @@ export const HeaderStyle = styled.header`
   }
 `;
 
-
 export const MainContainerStyle = styled.div`  
   display: flex;
   background-color: ${white};
   padding: 40px 90px;
   height: 417px;
 `
-
 
 export const FooterStyle = styled.footer`
   display: flex;
