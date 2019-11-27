@@ -37,21 +37,22 @@ const Carreira = () => {
           />
         );
       })}
-      {formQuestionNumber + 1 < questionItems.length && <Button
-        onClick={() => setFormQuestionNumber(formQuestionNumber + 1)}
-      >
-        >
-      </Button>}
-      {formQuestionNumber + 1 >= questionItems.length && <Button
-        onClick={() => setContainerActive(containerActive + 1)}>
-        Avançar
-      </Button>}
+      {formQuestionNumber + 1 < questionItems.length && (
+        <Button onClick={() => setFormQuestionNumber(formQuestionNumber + 1)}>
+          >
+        </Button>
+      )}
+      {formQuestionNumber + 1 >= questionItems.length && (
+        <Button onClick={() => setContainerActive(containerActive + 1)}>
+          Avançar
+        </Button>
+      )}
     </ItemContainer>
   );
 
   // Início - Questionário - 1
   const formQuestionario1View = (
-    <ItemContainer isActive={containerActive === 1}>
+    <ItemContainer isActive={containerActive === 2}>
       <div>
         <h1>Questionário 1:</h1>
       </div>
@@ -69,12 +70,32 @@ const Carreira = () => {
   );
   // Fim - Questionário - 1
 
-  const contentContainers = [formView, formQuestionario1View];
+  const formFriendRelativeView = (
+    <ItemContainer isActive={containerActive === 1}>
+      <div>
+        <p>
+          Você possui algum conhecido que trabalha na área amigo ou parente?
+        </p>
+        <Button>Sim</Button>
+        <Button>Não</Button>
+      </div>
+      <Button
+        disabled={formQuestionNumber + 1 > questionItems.length}
+        onClick={() => setFormQuestionNumber(formQuestionNumber + 1)}
+      >
+        Próximo
+      </Button>
+    </ItemContainer>
+  );
+
+  const contentContainers = [
+    formView,
+    formFriendRelativeView,
+    formQuestionario1View
+  ];
 
   return (
-    <CarreiraContainer>      
-      {contentContainers[containerActive]}
-    </CarreiraContainer>
+    <CarreiraContainer>{contentContainers[containerActive]}</CarreiraContainer>
   );
 };
 
