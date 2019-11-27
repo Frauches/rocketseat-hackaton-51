@@ -36,9 +36,7 @@ const Carreira = () => {
     </div>
   );
 
-
-  const contentContainers = [formView, formView];
-
+  const contentContainers = [formView];
   return (
     <CarreiraContainer>
       {contentContainers.map(formView => {

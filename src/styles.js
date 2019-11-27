@@ -104,3 +104,11 @@ export const CarreiraContainer = styled.div`
   flex-wrap: nowrap;  
   overflow-x: hidden;
 `;
+
+export const Paragraph = styled.p`
+  text-align: justify;
+  text-justify: inter-word;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+`;
