@@ -11,6 +11,7 @@ const Carreira = () => {
     profissao: ""
   });
   const [formQuestionNumber, setFormQuestionNumber] = useState(0);
+  const [containerActive, setContainerActive] = useState(0);
   const questionItems = ["Diga-nos seu nome", "Diga-nos sua idade", "Diga-nos sua escolaridade", "E quais profissões você mais se identifica?"]
 
 
@@ -21,20 +22,29 @@ const Carreira = () => {
     });
   }
 
+  const formView = (
+    <div>
+      {questionItems.map((questionItem, index) => {
+        return (
+          <InputText isHidden={formQuestionNumber + 1 <= index}
+            label={questionItem}
+            value={form[index]}
+            onChange={(event) => handleChange(Object.keys(form)[index])(event)} />
+        );
+      })}
+      <Button disabled={formQuestionNumber + 1 > questionItems.length} onClick={() => setFormQuestionNumber(formQuestionNumber + 1)}>Próximo</Button>
+    </div>
+  );
+
+
+  const contentContainers = [formView, formView];
 
   return (
     <CarreiraContainer>
-      <div>
-        {questionItems.map((questionItem, index) => {
-          return (
-            <InputText isHidden={formQuestionNumber + 1 <= index}
-              label={questionItem}
-              value={form[index]}
-              onChange={(event) => handleChange(Object.keys(form)[index])(event)} />
-          );
-        })}
-        <Button disabled={formQuestionNumber + 1 > questionItems.length} onClick={() => setFormQuestionNumber(formQuestionNumber + 1)}>Próximo</Button>
-      </div>
+      {contentContainers.map(formView => {
+        return (formView);
+      })}
+
     </CarreiraContainer>
   );
 }

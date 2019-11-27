@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <MainContainerStyle>
-        <Carreira />
+        <Carreira/>
       </MainContainerStyle>
       <Footer />
     </div>
